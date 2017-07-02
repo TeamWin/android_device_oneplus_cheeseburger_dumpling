@@ -1,0 +1,20 @@
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+#TODO: Add 'check' as fs_mgr_flags with data partition.
+# Currently we dont have e2fsck compiled. So fs check would failed.
+
+#<src>                                   <mnt_point>        <type> <mnt_flags and options>                                       <fs_mgr_flags>a
+/dev/block/bootdevice/by-name/boot       /boot              emmc   defaults                                                      recoveryonly
+/dev/block/bootdevice/by-name/recovery   /recovery          emmc   defaults                                                      recoveryonly
+/dev/block/bootdevice/by-name/system     /system            ext4   ro,barrier=1,noatime                                          wait
+/dev/block/bootdevice/by-name/userdata   /data              f2fs   noatime,nosuid,nodev,discard,nodiratime,inline_xattr,errors=continue         wait,check,encryptable=footer,resize
+/dev/block/bootdevice/by-name/userdata   /data              ext4   nosuid,nodev,barrier=1,noauto_da_alloc,discard,errors=continue   wait,check,encryptable=footer,resize
+#/devices/soc/c0a4900.sdhci/mmc_host*    /storage/sdcard1   vfat   nosuid,nodev                                                  wait,voldmanaged=sdcard1:auto,encryptable=footer
+/dev/block/zram0                         none               swap   defaults                                                      zramsize=536870912
+/dev/block/bootdevice/by-name/misc       /misc              emmc   defaults                                                      defaults
+/dev/block/bootdevice/by-name/modem      /firmware          vfat   ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait
+/dev/block/bootdevice/by-name/bluetooth  /bt_firmware       vfat   ro,shortname=lower,uid=1002,gid=3002,dmask=227,fmask=337,context=u:object_r:bt_firmware_file:s0 wait
+/dev/block/bootdevice/by-name/cache      /cache             ext4   rw,nosuid,nodev,barrier=1                                      wait,check
+/devices/soc/a800000.ssusb/a800000.dwc3/xhci-hcd.0.auto/usb* auto auto defaults voldmanaged=usbotg:auto
