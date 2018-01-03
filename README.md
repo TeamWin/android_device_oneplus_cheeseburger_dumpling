@@ -1,17 +1,17 @@
 # android_device_oneplus_cheeseburger
-For building TWRP for OnePlus 5 ONLY
+Tree for building TWRP for OnePlus 5
 
-Kernel Source
+## Kernel Sources
 
-https://github.com/katinatez/android_kernel_oneplus_msm8998/commits/QC8998_N_7.1
+https://github.com/lineageos/android_kernel_oneplus_msm8998/tree/lineage-15.1
 
-To compile
+## To compile
 
-. build/envsetup.sh && lunch omni_cheeseburger-userdebug && make -j8 recoveryimage
+export ALLOW_MISSING_DEPENDENCIES=true
 
-The OnePlus 5 (codenamed _"cheeseburger"_) are high-end smartphones from OnePlus.
+. build/envsetup.sh && lunch omni_cheeseburger-eng
 
-OnePlus 5 was announced and released in June 2017.
+mka adbd recoveryimage
 
 ## Device specifications
 
