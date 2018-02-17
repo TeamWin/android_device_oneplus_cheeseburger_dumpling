@@ -4,7 +4,7 @@
 /recovery	emmc	/dev/block/bootdevice/by-name/recovery					flags=backup=1
 /system		ext4	/dev/block/bootdevice/by-name/system
 /system_image	emmc	/dev/block/bootdevice/by-name/system
-/data		ext4	/dev/block/bootdevice/by-name/userdata					flags=encryptable=footer;length=-16384
+/data		ext4	/dev/block/bootdevice/by-name/userdata
 /firmware	vfat	/dev/block/bootdevice/by-name/modem					flags=display="Firmware";mounttodecrypt;fsflags=ro
 /misc		emmc	/dev/block/bootdevice/by-name/misc
 /modem		emmc	/dev/block/bootdevice/by-name/modem					flags=backup=1;display="Modem"
