@@ -1,0 +1,143 @@
+<manifest version="1.0" type="framework">
+    <hal format="hidl">
+        <name>android.frameworks.displayservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDisplayService</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDisplayService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.frameworks.schedulerservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISchedulingPolicyService</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISchedulingPolicyService/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.frameworks.sensorservice</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISensorManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISensorManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.graphics.composer</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IComposer</name>
+            <instance>vr</instance>
+        </interface>
+        <fqname>@2.1::IComposer/vr</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.health</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IHealth</name>
+            <instance>backup</instance>
+        </interface>
+        <fqname>@2.0::IHealth/backup</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hidl.allocator</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAllocator</name>
+            <instance>ashmem</instance>
+        </interface>
+        <fqname>@1.0::IAllocator/ashmem</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hidl.manager</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IServiceManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::IServiceManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hidl.memory</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IMapper</name>
+            <instance>ashmem</instance>
+        </interface>
+        <fqname>@1.0::IMapper/ashmem</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hidl.token</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITokenManager</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ITokenManager/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.system.net.netd</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>INetd</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.1::INetd/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.system.wifi.keystore</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IKeystore</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IKeystore/default</fqname>
+    </hal>
+    <hal format="native">
+        <name>netutils-wrapper</name>
+        <transport></transport>
+        <version>1.0</version>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.atcmdfwd</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAtCmdFwd</name>
+            <instance>AtCmdFwdService</instance>
+        </interface>
+        <fqname>@1.0::IAtCmdFwd/AtCmdFwdService</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.wifi.keystore</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IKeystoreExt</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IKeystoreExt/default</fqname>
+    </hal>
+    <vendor-ndk>
+        <version>28</version>
+    </vendor-ndk>
+    <system-sdk>
+        <version>28</version>
+    </system-sdk>
+</manifest>
