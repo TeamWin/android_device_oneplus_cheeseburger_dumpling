@@ -8,10 +8,11 @@
 /vendor_image	emmc	/dev/block/bootdevice/by-name/vendor
 /persist		ext4	/dev/block/bootdevice/by-name/persist				flags=display="Persist"
 /data			ext4	/dev/block/bootdevice/by-name/userdata
-/firmware		vfat	/dev/block/bootdevice/by-name/modem					flags=backup=1;display="Firmware";mounttodecrypt;fsflags=ro
+/firmware		vfat	/dev/block/bootdevice/by-name/modem					flags=display="Firmware";mounttodecrypt;fsflags=ro
 /misc			emmc	/dev/block/bootdevice/by-name/misc
-/bluetooth		emmc	/dev/block/bootdevice/by-name/bluetooth				flags=backup=1;subpartitionof=/firmware
-/dsp			emmc	/dev/block/bootdevice/by-name/dsp					flags=backup=1;subpartitionof=/firmware
+/modem			emmc	/dev/block/bootdevice/by-name/modem					flags=backup=1;display="Modem"
+/bluetooth		emmc	/dev/block/bootdevice/by-name/bluetooth				flags=backup=1;subpartitionof=/modem
+/dsp			emmc	/dev/block/bootdevice/by-name/dsp					flags=backup=1;subpartitionof=/modem
 /efs1			emmc	/dev/block/bootdevice/by-name/modemst1				flags=backup=1;display=EFS
 /efs2			emmc	/dev/block/bootdevice/by-name/modemst2				flags=backup=1;subpartitionof=/efs1
 /efsc			emmc	/dev/block/bootdevice/by-name/fsc					flags=backup=1;subpartitionof=/efs1
