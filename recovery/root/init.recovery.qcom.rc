@@ -37,19 +37,7 @@ on fs
     chown system system /dev/ion
     install_keyring
 
-    # Mount firmware
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower uid=1000 gid=1000 dmask=227 fmask=337
-
-    # Only needed when we don't include all required blobs for crypto
-    #start prepdecrypt
     setprop crypto.ready 1
-
-service prepdecrypt /sbin/prepdecrypt.sh
-    oneshot
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
 
 # Separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
@@ -115,7 +103,7 @@ on property:crypto.ready=0
 on property:crypto.ready=1
     start sbinqseecomd
 
-on property:sys.listeners.registered=true
+on property:vendor.sys.listeners.registered=true
     start hwservicemanager
     start keymaster-3-0
     start gatekeeper-1-0

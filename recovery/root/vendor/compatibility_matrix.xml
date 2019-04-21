@@ -55,7 +55,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <vndk>
-        <version>0.0.0</version>
-    </vndk>
+    <vendor-ndk>
+        <version>28</version>
+    </vendor-ndk>
 </compatibility-matrix>
