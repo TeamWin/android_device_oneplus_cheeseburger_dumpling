@@ -101,3 +101,4 @@ TW_INCLUDE_NTFS_3G := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_MAX_BRIGHTNESS := 255
 TW_THEME := portrait_hdpi
+TW_USE_TOOLBOX := true
