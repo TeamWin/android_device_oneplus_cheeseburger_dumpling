@@ -1,0 +1,5 @@
+#!/sbin/sh
+
+dd if=/dev/zero of=/dev/block/bootdevice/by-name/misc bs=16384 2>/dev/null
+
+echo "Done."
