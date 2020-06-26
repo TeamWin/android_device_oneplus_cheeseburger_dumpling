@@ -20,7 +20,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES := system/core/base/include system/core/init
-LOCAL_SRC_FILES := init_cheeseburger.cpp
-LOCAL_MODULE := libinit_cheeseburger
+LOCAL_SRC_FILES := init_cheeseburger-dumpling.cpp
+LOCAL_MODULE := libinit_cheeseburger-dumpling
 
 include $(BUILD_STATIC_LIBRARY)
