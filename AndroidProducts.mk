@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_cheeseburger-dumpling.mk
+    $(LOCAL_DIR)/omni_cheeseburger_dumpling.mk
