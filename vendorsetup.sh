@@ -1,2 +1,2 @@
-add_lunch_combo omni_cheeseburger-dumpling-eng
-add_lunch_combo omni_cheeseburger-dumpling-userdebug
+add_lunch_combo omni_cheeseburger_dumpling-eng
+add_lunch_combo omni_cheeseburger_dumpling-userdebug
