@@ -61,7 +61,7 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-TARGET_PREBUILT_KERNEL := device/oneplus/cheeseburger/prebuilt/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := device/oneplus/cheeseburger-dumpling/prebuilt/Image.gz-dtb
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8998
@@ -105,8 +105,8 @@ TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 
 # Init properties from bootloader version
-TARGET_INIT_VENDOR_LIB := libinit_cheeseburger
-TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger
+TARGET_INIT_VENDOR_LIB := libinit_cheeseburger-dumpling
+TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger-dumpling
 
 #Extra
 BOARD_SUPPRESS_SECURE_ERASE := true

@@ -15,7 +15,7 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := cheeseburger
+PRODUCT_RELEASE_NAME := cheeseburger-dumpling
 
 $(call inherit-product, build/target/product/embedded.mk)
 
@@ -30,8 +30,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gatekeeper=msm8998
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := cheeseburger
-PRODUCT_NAME := omni_cheeseburger
+PRODUCT_DEVICE := cheeseburger-dumpling
+PRODUCT_NAME := omni_cheeseburger-dumpling
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := OnePlus A5000
 PRODUCT_MANUFACTURER := OnePlus
