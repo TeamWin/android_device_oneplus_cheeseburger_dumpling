@@ -31,10 +31,21 @@
 
 #include <android-base/properties.h>
 
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
+
 #include "property_service.h"
 
-namespace android {
-namespace init {
+void property_override(char const prop[], char const value[], bool add = true)
+{
+    auto pi = (prop_info *) __system_property_find(prop);
+
+    if (pi != nullptr) {
+        __system_property_update(pi, value, strlen(value));
+    } else if (add) {
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+    }
+}
 
 void vendor_load_properties()
 {
@@ -43,26 +54,23 @@ void vendor_load_properties()
 	switch (rf_version) {
 	/* OnePlus 5 */
 	case 53:
-		property_set("ro.product.model", "ONEPLUS A5000");
-		property_set("ro.product.device", "cheeseburger");
-		property_set("ro.build.product", "cheeseburger");
-		property_set("ro.display.series", "OnePlus 5");
+		property_override("ro.product.model", "ONEPLUS A5000");
+		property_override("ro.product.device", "cheeseburger");
+		property_override("ro.build.product", "cheeseburger");
+		property_override("ro.display.series", "OnePlus 5");
 		break;
 	/* OnePlus 5T */
 	case 21:
-		property_set("ro.product.model", "ONEPLUS A5010");
-		property_set("ro.product.device", "dumpling");
-		property_set("ro.build.product", "dumpling");
-		property_set("ro.display.series", "OnePlus 5T");
+		property_override("ro.product.model", "ONEPLUS A5010");
+		property_override("ro.product.device", "dumpling");
+		property_override("ro.build.product", "dumpling");
+		property_override("ro.display.series", "OnePlus 5T");
 		break;
 	/* default to OnePlus 5 */
 	default:
-		property_set("ro.product.model", "ONEPLUS A5000");
-		property_set("ro.product.device", "cheeseburger");
-		property_set("ro.build.product", "cheeseburger");
-		property_set("ro.display.series", "OnePlus 5");
+		property_override("ro.product.model", "ONEPLUS A5000");
+		property_override("ro.product.device", "cheeseburger");
+		property_override("ro.build.product", "cheeseburger");
+		property_override("ro.display.series", "OnePlus 5");
 	}
-}
-
-}
 }
