@@ -15,4 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_cheeseburger_dumpling.mk
+    $(LOCAL_DIR)/twrp_cheeseburger.mk
+
+COMMON_LUNCH_CHOICES := \
+    twrp_cheeseburger-eng \
+    twrp_cheeseburger-userdebug
