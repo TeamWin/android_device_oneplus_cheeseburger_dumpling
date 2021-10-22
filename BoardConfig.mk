@@ -23,6 +23,11 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
+COMMON_PATH := device/oneplus/cheeseburger_dumpling
+
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
@@ -45,26 +50,39 @@ TARGET_NO_BOOTLOADER := true
 TARGET_USES_UEFI := true
 
 # Crypto
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
-TARGET_HW_DISK_ENCRYPTION := false
 TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
+TW_INCLUDE_RESETPROP := true
+PLATFORM_SECURITY_PATCH := 2127-12-31
+VENDOR_SECURITY_PATCH := 2127-12-31
+PLATFORM_VERSION := 127
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 
-BOARD_KERNEL_CMDLINE += service_locator.enable=1 swiotlb=2048 androidboot.usbconfigfs=true 
-BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3 
-BOARD_KERNEL_CMDLINE += firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom \
+	user_debug=31 \
+	msm_rtb.filter=0x37 \
+	ehci-hcd.park=3 \
+	lpm_levels.sleep_disabled=1 \
+	sched_enable_hmp=1 \
+	sched_enable_power_aware=1 \
+	service_locator.enable=1 \
+	swiotlb=2048 \
+	androidboot.usbconfigfs=true \
+	androidboot.usbcontroller=a800000.dwc3 \
+	firmware_class.path=/vendor/firmware_mnt/image \
+	loop.max_part=7 \
+	androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
-TARGET_PREBUILT_KERNEL := device/oneplus/cheeseburger_dumpling/prebuilt/Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_PREBUILT_KERNEL := $(COMMON_PATH)/prebuilt/Image.gz-dtb
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8998
+TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
 
 # Partitions
@@ -90,6 +108,31 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hidl.base@1.0 \
+    ashmemd \
+    ashmemd_aidl_interface-cpp \
+    libandroidicu \
+    libashmemd_client \
+    libcap \
+    libion \
+    libpcrecpp \
+    libicuuc \
+    libxml2 \
+    tzdata
+
+TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
+    $(TARGET_OUT_EXECUTABLES)/ashmemd
+
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
 # TWRP specific build flags
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
@@ -105,11 +148,12 @@ TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 
 # Init properties from bootloader version
-TARGET_INIT_VENDOR_LIB := libinit_cheeseburger_dumpling
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_cheeseburger_dumpling
 TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger_dumpling
 
 #Extra
 BOARD_SUPPRESS_SECURE_ERASE := true
-TW_IGNORE_MISC_WIPE_DATA := true
 TW_EXCLUDE_TWRPAPP := true
 TW_HAS_EDL_MODE := true
+TWRP_INCLUDE_LOGCAT:= true
+TARGET_USES_LOGD := true
