@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95fa5389_b16f7e60",
+        "filename": "twrp_cheeseburger.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2021-11-02T17:01:45Z",
+      "side": 1,
+      "message": "remove uneeded whitespace",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 4
+      },
+      "revId": "eb480f7a4886967e79f2acbdcb63aca167610b61",
+      "serverId": "9c1c7d72-6534-4d44-b0ea-39f63e804833"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa0e1f6d_27449a28",
+        "filename": "twrp_cheeseburger.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 28
+      },
+      "writtenOn": "2021-11-02T17:01:45Z",
+      "side": 1,
+      "message": "remove uneeded whitespace",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "eb480f7a4886967e79f2acbdcb63aca167610b61",
+      "serverId": "9c1c7d72-6534-4d44-b0ea-39f63e804833"
+    }
+  ]
+}
