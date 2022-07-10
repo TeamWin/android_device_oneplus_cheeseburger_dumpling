@@ -102,12 +102,14 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 TARGET_RECOVERY_DEVICE_MODULES += \
 	libion \
 	libxml2 \
-	vendor.display.config@1.0
+	vendor.display.config@1.0 \
+	vendor.display.config@2.0
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
 	$(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
 	$(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
-	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so
+	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
+	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
 # TWRP specific build flags
 BOARD_HAS_NO_REAL_SDCARD := true
@@ -118,15 +120,12 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := "26"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_THEME := portrait_hdpi
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_RESETPROP := true
 TW_USE_TOOLBOX := true
-TW_EXCLUDE_TWRPAPP := true
 TW_HAS_EDL_MODE := true
 
 # Init properties from bootloader version
