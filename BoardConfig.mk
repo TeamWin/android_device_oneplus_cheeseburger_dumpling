@@ -64,20 +64,11 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom \
 	user_debug=31 \
 	msm_rtb.filter=0x37 \
 	ehci-hcd.park=3 \
-	lpm_levels.sleep_disabled=1 \
-	sched_enable_hmp=1 \
-	sched_enable_power_aware=1 \
 	service_locator.enable=1 \
 	swiotlb=2048 \
-	androidboot.usbconfigfs=true \
-	androidboot.usbcontroller=a800000.dwc3 \
-	firmware_class.path=/vendor/firmware_mnt/image \
-	loop.max_part=7 \
-	androidboot.selinux=permissive
+	loop.max_part=7
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_PREBUILT_KERNEL := $(COMMON_PATH)/prebuilt/Image.gz-dtb
 
@@ -110,28 +101,23 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 
 TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hidl.base@1.0 \
-    ashmemd \
-    ashmemd_aidl_interface-cpp \
-    libandroidicu \
-    libashmemd_client \
-    libcap \
-    libion \
-    libpcrecpp \
-    libicuuc \
-    libxml2
-
-TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
-    $(TARGET_OUT_EXECUTABLES)/ashmemd
+	android.system.suspend@1.0 \
+	libandroidicu \
+	libhardware_legacy \
+	libcap \
+	libion \
+	libprocinfo \
+	libpuresoftkeymasterdevice \
+	libxml2
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libpcrecpp.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+	$(TARGET_OUT_SHARED_LIBRARIES)/android.system.suspend@1.0.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libhardware_legacy.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libprocinfo.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so \
+	$(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 
 # Treble
 PRODUCT_FULL_TREBLE_OVERRIDE := true
@@ -140,13 +126,12 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := "26"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := true
 TW_INCLUDE_NTFS_3G := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_THEME := portrait_hdpi
 TW_USE_TOOLBOX := true
 
@@ -156,7 +141,6 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger_dumpling
 
 #Extra
 BOARD_SUPPRESS_SECURE_ERASE := true
-TW_EXCLUDE_TWRPAPP := true
 TW_HAS_EDL_MODE := true
 TWRP_INCLUDE_LOGCAT:= true
 TARGET_USES_LOGD := true
