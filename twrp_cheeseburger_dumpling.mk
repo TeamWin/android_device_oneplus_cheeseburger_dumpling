@@ -26,16 +26,20 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 
 # qcom standard decryption
 PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
+  qcom_decrypt \
+  qcom_decrypt_fbe
 
 # Set by init module based on ro.boot.rf_version argument from bootloader
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += ro.product.device ro.product.model ro.build.product
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.keystore=msm8998 \
-    ro.hardware.gatekeeper=msm8998 \
-    ro.vendor.build.security_patch=2127-12-31
+  ro.hardware.keystore=msm8998 \
+  ro.hardware.gatekeeper=msm8998 \
+  ro.vendor.build.security_patch=2127-12-31
+
+# Apex libraries
+PRODUCT_COPY_FILES += \
+  $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := cheeseburger_dumpling
@@ -45,6 +49,6 @@ PRODUCT_MODEL := OnePlus A5000
 PRODUCT_MANUFACTURER := OnePlus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="OnePlus5-user 10 QKQ1.191014.012 2010292059 release-keys"
+  PRIVATE_BUILD_DESC="OnePlus5-user 10 QKQ1.191014.012 2010292059 release-keys"
 
 BUILD_FINGERPRINT := OnePlus/OnePlus5/OnePlus5:10/QKQ1.191014.012/2010292059:user/release-keys
