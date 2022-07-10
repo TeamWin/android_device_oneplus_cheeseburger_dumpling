@@ -56,7 +56,7 @@ To be able to compile you need to cherry-pick the following commits:
 
 ```
 source build/envsetup.sh
-repopick 5405 5540 5653
+repopick 5405 5540
 ```
 
 Finally execute these:
