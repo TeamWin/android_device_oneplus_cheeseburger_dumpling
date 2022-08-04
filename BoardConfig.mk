@@ -127,10 +127,8 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_RESETPROP := true
 TW_USE_TOOLBOX := true
 TW_HAS_EDL_MODE := true
-
-# Init properties from bootloader version
-TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_cheeseburger_dumpling
-TARGET_RECOVERY_DEVICE_MODULES := libinit_cheeseburger_dumpling
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.date.utc;ro.bootimage.build.date.utc=ro.build.date.utc;ro.odm.build.date.utc=ro.build.date.utc;ro.product.build.date.utc=ro.build.date.utc;ro.system.build.date.utc=ro.build.date.utc;ro.system_ext.build.date.utc=ro.build.date.utc;ro.vendor.build.date.utc=ro.build.date.utc;ro.build.fingerprint=ro.system.build.fingerprint""
 
 # TWRP Debug Flags
 TWRP_INCLUDE_LOGCAT:= true

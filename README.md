@@ -25,7 +25,7 @@ Tree for building official TWRP for OnePlus 5/5T. (Decryption works on Android 1
 ## Kernel
 
 Kernel source: (prebuilt)
-https://github.com/xLexip/android_kernel_oneplus_msm8998
+https://github.com/faoliveira78/android_kernel_oneplus_msm8998
 
 ## Compile
 

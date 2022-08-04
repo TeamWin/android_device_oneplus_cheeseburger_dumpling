@@ -27,6 +27,13 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+service unified-script /system/bin/unified-script.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on early-init
     mkdir /firmware 0771 system system
 
@@ -38,6 +45,8 @@ on init
     setprop prepdecrypt.loglevel 2
 
 on boot
+    chmod 0777 /system/bin/unified-script.sh
+    start unified-script
     # Workaround for adb not coming up
     setprop sys.usb.config mtp,adb
     setprop sys.usb.config adb
