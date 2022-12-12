@@ -129,6 +129,7 @@ TW_USE_TOOLBOX := true
 TW_HAS_EDL_MODE := true
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.date.utc;ro.build.date;ro.build.fingerprint=ro.system.build.fingerprint"
+TW_OPTIONAL_PARTITION_UNMOUNT := true
 
 # TWRP Debug Flags
 TWRP_INCLUDE_LOGCAT:= true
