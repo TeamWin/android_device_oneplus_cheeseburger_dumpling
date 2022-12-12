@@ -1,6 +1,6 @@
 # android_device_oneplus_cheeseburger_dumpling
 
-Tree for building official TWRP for OnePlus 5/5T. (Decryption works on Android 12.x ROMs)
+Tree for building official TWRP for OnePlus 5/5T. (Decryption works on Android 12.x and 13 ROMs)
 
 | Basic                   | Spec Sheet                                                                                                                     |
 | -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
