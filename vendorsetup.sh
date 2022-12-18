@@ -1,1 +1,1 @@
-repopick 5917; repopick 6106; repopick 6120;
+git -C bootable/recovery fetch https://gerrit.twrp.me/android_bootable_recovery refs/changes/17/5917/2 && git -C bootable/recovery cherry-pick FETCH_HEAD; git -C bootable/recovery fetch https://gerrit.twrp.me/android_bootable_recovery refs/changes/06/6106/1 && git -C bootable/recovery cherry-pick FETCH_HEAD; git -C bootable/recovery fetch https://gerrit.twrp.me/android_bootable_recovery refs/changes/20/6120/1 && git -C bootable/recovery cherry-pick FETCH_HEAD
