@@ -1,6 +1,6 @@
 # android_device_oneplus_cheeseburger_dumpling
 
-Tree for building official TWRP for OnePlus 5/5T. (Decryption works on Android 12.x and 13 ROMs)
+Tree for building official TWRP for OnePlus 5/5T. (Decryption works on Android 12+ ROMs)
 
 | Basic                   | Spec Sheet                                                                                                                     |
 | -----------------------:|:------------------------------------------------------------------------------------------------------------------------------ |
@@ -50,6 +50,11 @@ Now you can sync your source:
 
 ```
 repo sync
+```
+
+If you want to build a recovery with support for dynamic partitions, add the following:
+```
+export ONEPLUS_DYNAMIC="true"
 ```
 
 Finally execute these:

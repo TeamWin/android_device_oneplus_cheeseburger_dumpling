@@ -17,25 +17,14 @@
 # Release name
 PRODUCT_RELEASE_NAME := cheeseburger_dumpling
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+DEVICE_PATH := device/oneplus/$(PRODUCT_RELEASE_NAME)
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/twrp/config/common.mk)
-
-# qcom standard decryption
-PRODUCT_PACKAGES += \
-	qcom_decrypt \
-	qcom_decrypt_fbe
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.hardware.keystore=msm8998 \
-	ro.hardware.gatekeeper=msm8998
+# Inherit from oxygen device
+$(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := cheeseburger_dumpling
-PRODUCT_NAME := twrp_cheeseburger_dumpling
+PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
+PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := OnePlus A5010
 PRODUCT_MANUFACTURER := OnePlus
