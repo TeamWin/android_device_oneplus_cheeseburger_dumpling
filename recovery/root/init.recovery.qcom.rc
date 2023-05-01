@@ -47,6 +47,9 @@ on boot
     # Workaround for adb not coming up
     setprop sys.usb.config mtp,adb
     setprop sys.usb.config adb
+    start qseecomd
+    exec u:r:recovery:s0 -- /system/bin/sleep 1s
+    start keymaster-3-0
     start health-hal-2-1
 
 # Enable OTG
