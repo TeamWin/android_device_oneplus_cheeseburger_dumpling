@@ -64,12 +64,16 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom \
 	ehci-hcd.park=3 \
 	service_locator.enable=1 \
 	swiotlb=2048 \
-	loop.max_part=7 \
-	androidboot.boot_devices=soc/1da4000.ufshc
+	loop.max_part=16 \
+	coherent_pool=8M \
+	androidboot.usbconfigfs=true \
+	lpm_levels.sleep_disabled=1 \
+	kpti=0
 ifeq ($(ONEPLUS_DYNAMIC), true)
 BOARD_KERNEL_CMDLINE += android_dt_dir=/non-existent \
 	androidboot.boot_devices=soc/1da4000.ufshc
 endif
+
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
@@ -100,6 +104,7 @@ BOARD_SUPER_PARTITION_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_VENDOR_DEVICE
 
 BOARD_SUPER_PARTITION_GROUPS := cheesedump_dynpart
 BOARD_CHEESEDUMP_DYNPART_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304 )
+BOARD_CHEESEDUMP_DYNPART_PARTITION_LIST := system system_ext product vendor odm
 else
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
