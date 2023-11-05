@@ -1,5 +1,5 @@
 #
-# Copyright 2017 - 2022 The Android Open Source Project
+# Copyright 2017 - 2023 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -80,9 +80,10 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8998
+TARGET_BOARD_PLATFORM := $(TARGET_BOOTLOADER_BOARD_NAME)
 TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
+PRODUCT_PLATFORM := $(TARGET_BOARD_PLATFORM)
 
 # Partitions
 
@@ -136,6 +137,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE := true
+TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5,dumpling,OnePlus5T,oneplus5t
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 ifeq ($(ONEPLUS_DYNAMIC), true)
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/fstab/recovery-dynamic.fstab
@@ -150,15 +152,18 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 	vendor.display.config@1.0 \
 	vendor.display.config@2.0
 
-TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+RECOVERY_LIBRARY_SOURCE_FILES += \
 	$(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
 	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
 	$(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+	
+# VNDK
+BOARD_VNDK_VERSION := current
 
 # TWRP specific build flags
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_SDCARD_ON_DATA := true
-TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
@@ -172,7 +177,7 @@ TW_INCLUDE_RESETPROP := true
 TW_USE_TOOLBOX := true
 TW_HAS_EDL_MODE := true
 TW_OVERRIDE_SYSTEM_PROPS := \
-    "ro.build.date.utc;ro.build.date;ro.build.fingerprint=ro.system.build.fingerprint"
+    "ro.build.fingerprint=ro.system.build.fingerprint"
 
 # TWRP Debug Flags
 TWRP_INCLUDE_LOGCAT:= true

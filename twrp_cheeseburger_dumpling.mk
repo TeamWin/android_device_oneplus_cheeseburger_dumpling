@@ -1,5 +1,5 @@
 #
-# Copyright 2017 - 2022 The Android Open Source Project
+# Copyright 2017 - 2023 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,8 +28,3 @@ PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := OnePlus
 PRODUCT_MODEL := OnePlus A5010
 PRODUCT_MANUFACTURER := OnePlus
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRIVATE_BUILD_DESC="OnePlus5T-user 10 QKQ1.191014.012 2010292059 release-keys"
-
-BUILD_FINGERPRINT := OnePlus/OnePlus5T/OnePlus5T:10/QKQ1.191014.012/2010292059:user/release-keys
