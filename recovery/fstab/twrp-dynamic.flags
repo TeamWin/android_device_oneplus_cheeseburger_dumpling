@@ -1,9 +1,9 @@
 # mount point     fstype    device           device2                    flags
+
+/boot             emmc      /dev/block/bootdevice/by-name/boot
+/cache            ext4      /dev/block/bootdevice/by-name/cache
+/metadata         ext4      /dev/block/bootdevice/by-name/logdump       flags=display="Metadata";fsflags="discard"
 /recovery         emmc      /dev/block/bootdevice/by-name/recovery      flags=backup=1
-/system           ext4      /dev/block/bootdevice/by-name/system        flags=backup=1;wipeingui
-/system_image     emmc      /dev/block/bootdevice/by-name/system
-/vendor           ext4      /dev/block/bootdevice/by-name/vendor        flags=backup=1;wipeingui
-/vendor_image     emmc      /dev/block/bootdevice/by-name/vendor
 /persist          ext4      /dev/block/bootdevice/by-name/persist       flags=display="Persist";backup=1;fsflags="noatime,nosuid,nodev,barrier=1"
 /firmware         vfat      /dev/block/bootdevice/by-name/modem         flags=display="Firmware";mounttodecrypt;fsflags="ro"
 /modem            emmc      /dev/block/bootdevice/by-name/modem         flags=backup=1;display="Modem"

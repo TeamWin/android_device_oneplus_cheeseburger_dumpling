@@ -41,9 +41,6 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-on init
-    setprop prepdecrypt.loglevel 2
-
 on boot
     chmod 0777 /system/bin/unified-script.sh
     start unified-script
