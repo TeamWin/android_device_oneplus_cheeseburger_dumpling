@@ -178,6 +178,7 @@ TW_USE_TOOLBOX := true
 TW_HAS_EDL_MODE := true
 TW_OVERRIDE_SYSTEM_PROPS := \
     "ro.build.fingerprint=ro.system.build.fingerprint"
+TW_SKIP_ADDITIONAL_FSTAB := true
 
 # TWRP Debug Flags
 TWRP_INCLUDE_LOGCAT:= true
