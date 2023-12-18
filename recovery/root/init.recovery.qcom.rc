@@ -1,4 +1,4 @@
-# Copyright (c) 2017-2023, The Linux Foundation. All rights reserved.
+# Copyright (c) 2017-2024, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -36,6 +36,9 @@ service unified-script /system/bin/unified-script.sh
 
 on early-init
     mkdir /firmware 0771 system system
+    
+on init && property:ro.boot.dynamic_partitions=true
+    exec u:r:recovery:s0 -- /system/bin/merge-fstab.sh
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
