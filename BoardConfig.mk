@@ -1,5 +1,5 @@
 #
-# Copyright 2017 - 2023 The Android Open Source Project
+# Copyright 2017 - 2024 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -140,11 +140,11 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 TARGET_OTA_ASSERT_DEVICE := cheeseburger,OnePlus5,oneplus5,dumpling,OnePlus5T,oneplus5t
 TARGET_RECOVERY_DEVICE_DIRS += $(DEVICE_PATH)
 ifeq ($(ONEPLUS_DYNAMIC), true)
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/fstab/recovery-dynamic.fstab
-PRODUCT_COPY_FILES += $(DEVICE_PATH)/recovery/fstab/twrp-dynamic.flags:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/twrp.flags
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab/recovery-dynamic.fstab
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/recovery/root/fstab/twrp-dynamic.flags:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/twrp.flags
 else
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/fstab/recovery-nondyn.fstab
-PRODUCT_COPY_FILES += $(DEVICE_PATH)/recovery/fstab/twrp-nondyn.flags:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/twrp.flags
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/fstab/recovery-nondyn.fstab
+PRODUCT_COPY_FILES += $(DEVICE_PATH)/recovery/root/fstab/twrp-nondyn.flags:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/twrp.flags
 endif
 
 TARGET_RECOVERY_DEVICE_MODULES += \

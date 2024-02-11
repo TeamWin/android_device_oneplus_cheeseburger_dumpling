@@ -3,11 +3,6 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 #<src>                                                       <mnt_point>               <type>  <mnt_flags and options>                                                                             <fs_mgr_flags>
-system                                                        /system                   ext4    ro,barrier=1,discard wait,logical 
-system_ext                                                    /system_ext               ext4    ro,barrier=1,discard wait,logical
-product                                                       /product                  ext4    ro,barrier=1,discard wait,logical
-vendor                                                        /vendor                   ext4    ro,barrier=1,discard wait,logical
-odm                                                           /odm                      ext4    ro,barrier=1,discard wait,logical    
 /dev/block/bootdevice/by-name/logdump                         /metadata                 ext4    nosuid,nodev,noatime,discard                                                                        wait,check,formattable
 /dev/block/bootdevice/by-name/userdata                        /data                     ext4    nosuid,nodev,noatime,barrier=1,noauto_da_alloc                                                      wait,check,fileencryption=ice,quota
 /dev/block/bootdevice/by-name/misc                            /misc                     emmc    defaults                                                                                            defaults
