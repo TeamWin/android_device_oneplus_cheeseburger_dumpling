@@ -52,10 +52,7 @@ Now you can sync your source:
 repo sync
 ```
 
-If you want to build a recovery with support for dynamic partitions, add the following:
-```
-export ONEPLUS_DYNAMIC="true"
-```
+If you don't want a universal build, i.e. you just want one that only works for roms with standard partitions, then remove the vendorsetup.sh file from the tree.
 
 Finally execute these:
 
