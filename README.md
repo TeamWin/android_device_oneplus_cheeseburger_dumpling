@@ -58,6 +58,7 @@ Finally execute these:
 
 ```
 . build/envsetup.sh
+export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL=C
 lunch twrp_cheeseburger_dumpling-eng
 mka recoveryimage
