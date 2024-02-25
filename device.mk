@@ -1,5 +1,5 @@
 #
-# Copyright 2017 - 2023 The Android Open Source Project
+# Copyright 2017 - 2024 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,18 +16,10 @@
 
 # Inherit AOSP product makefiles
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
-
-# Debug
-PRODUCT_PACKAGES += \
-	crash_dump \
-	libprocinfo.recovery
-
-PRODUCT_COPY_FILES += \
-	$(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/system/apex/com.android.runtime/bin/crash_dump32:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/crash_dump32 \
-	$(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/system/apex/com.android.runtime/bin/crash_dump64:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/crash_dump64
 
 ifeq ($(ONEPLUS_DYNAMIC), true)
 # Dynamic Partitions
